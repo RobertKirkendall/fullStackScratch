@@ -1,14 +1,14 @@
 import express from 'express';
 import pkg from 'pg';
 import path from 'path';
+import 'dotenv/config';
 
 const { Pool } = pkg;
+const connectionString = process.env.PG_DATABASE_URL
 
+console.log('connectionString: ', connectionString)
 const psql = new Pool({
-    host: 'localhost',
-    user: 'rob',
-    password: 'password',
-    database: 'autoinfo',
+   connectionString,
 });
 
 const app = express();
