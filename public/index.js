@@ -1,8 +1,8 @@
 $(document).ready(()=>{
-    const randomOwner = Math.floor(Math.random() * 20) + 1;
-   
+    
     $('#button').on('click', ()=>{
         $.get('/api/owners', (data)=>{
+            const randomOwner = Math.floor(Math.random() * 20) + 1;
             console.log('server response: ', data[randomOwner]);
             $("#nameField").text(`Full Name: ${data[randomOwner].first_name} ${data[randomOwner].last_name}`);
             $("#addressField").text(`Address: ${data[randomOwner].address}`);   
